@@ -159,7 +159,7 @@ body {
 .bird-hero {
   position: relative;
   height: 300px; /* adjust height for more/less visibility */
-  background: url("../images/bird-header.png") no-repeat center top;
+  background: url("../images/eagle-eyes.webp") no-repeat center top;
   background-size: cover;
   margin-top: 0;
   padding: 0;
