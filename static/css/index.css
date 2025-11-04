@@ -155,34 +155,19 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
-/* --- Bird header with soft fade --- */
-.bird-hero{
-  position: relative;
-  height: 500px;           /* tweak for how much bird is visible */
-  background: url("../images/eagle_eyes.jpg") no-repeat center top;
-  background-size: cover;
-  margin: 0;               /* remove extra spacing */
+/* Slim bird header that fades at the bottom */
+.bird-hero {
+  /* size/position */
+  height: 140px;                   /* make it shorter; tweak 120–180px to taste */
+  background: url("../images/bird-header.png") no-repeat center top;
+  background-size: cover;          /* or: background-size: auto 140px; if you don't want cropping */
+  margin: 0;
   padding: 0;
-  /* background-attachment: fixed; */
+
+  /* the magic: fade out the bottom into the page */
+  -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
 }
 
-/* fade into page background (white here; change if yours differs) */
-.bird-hero::after{
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 120px;           /* depth of the fade */
-  /* background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #ffffff 100%); */
-}
-
-/* optional: a slight fade toward the top edge too */
-.bird-overlay{
-  position: absolute;
-  inset: 0;
-  /* background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 80%); */
-}
-
-/* tighten up the next hero so there’s no gap */
-.bird-hero + .hero{
-  margin-top: 0;
-}
+/* make the next section butt up against the header with no gap */
+.bird-hero + .hero { margin-top: 0; }
