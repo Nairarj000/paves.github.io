@@ -158,7 +158,7 @@ body {
 /* --- Bird header with soft fade --- */
 .bird-hero{
   position: relative;
-  height: 1000px;           /* tweak for how much bird is visible */
+  height: 500px;           /* tweak for how much bird is visible */
   background: url("../images/eagle_eyes.jpg") no-repeat center top;
   background-size: cover;
   margin: 0;               /* remove extra spacing */
