@@ -155,19 +155,28 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
-/* Slim bird header that fades at the bottom */
-.bird-hero {
-  /* size/position */
-  height: 1000px;                   /* make it shorter; tweak 120–180px to taste */
+/* Slim bird banner */
+.bird-banner{
+  height: 110px;                      /* <- make this the size you want (80–140px) */
   background: url("../images/eagle_eyes2.jpg") no-repeat center top;
-  background-size: auto 140px;          /* or: background-size: auto 140px; if you don't want cropping */
-  margin: 0;
-  padding: 0;
-
-  /* the magic: fade out the bottom into the page */
-  -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+  background-size: contain;           /* scale DOWN to fit the height, no cropping */
+  margin: 0; padding: 0;
+  position: relative;
 }
 
-/* make the next section butt up against the header with no gap */
-.bird-hero + .hero { margin-top: 0; }
+/* fade the bottom of the banner into the page background (white here) */
+.bird-banner::after{
+  content: "";
+  position: absolute; left:0; right:0; bottom:-1px;
+  height: 60px;                       /* depth of fade */
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #fff 100%);
+  pointer-events: none;
+}
+
+/* Remove any gap before the next section */
+.bird-banner + .hero{ margin-top: 0; }
+
+/* Mobile: slightly shorter if you like */
+@media (max-width: 768px){
+  .bird-banner{ height: 90px; }
+}
