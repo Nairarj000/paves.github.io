@@ -157,7 +157,7 @@ body {
 }
 /* Slim bird banner */
 .bird-banner{
-  height: 200px;                      /* <- make this the size you want (80–140px) */
+  height: 250px;                      /* <- make this the size you want (80–140px) */
   background: url("../images/eagle_eyes2.jpg") no-repeat center top;
   background-size: contain;           /* scale DOWN to fit the height, no cropping */
   margin: 0; padding: 0;
