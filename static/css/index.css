@@ -155,3 +155,31 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+/* --- Bird Hero Section --- */
+.bird-hero {
+  position: relative;
+  height: 300px; /* adjust height for more/less visibility */
+  background: url("../images/bird-header.png") no-repeat center top;
+  background-size: cover;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* gradient fade into background color */
+.bird-hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px; /* how deep the fade goes */
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, white 100%);
+}
+
+/* optional overlay for softening the image */
+.bird-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 80%);
+}
+
