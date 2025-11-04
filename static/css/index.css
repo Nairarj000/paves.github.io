@@ -158,7 +158,7 @@ body {
 /* Slim bird header that fades at the bottom */
 .bird-hero {
   /* size/position */
-  height: 390px;                   /* make it shorter; tweak 120–180px to taste */
+  height: 1000px;                   /* make it shorter; tweak 120–180px to taste */
   background: url("../images/eagle_eyes2.jpg") no-repeat center top;
   background-size: cover;          /* or: background-size: auto 140px; if you don't want cropping */
   margin: 0;
