@@ -320,7 +320,7 @@
           <h2 class="title is-3">Spectrograms</h2>
           <p>
             Using <i>PAVES</i> you can create spectrograms from the recordings. This allows
-            users to visualize their recordings and see their frequencies.
+            users to visualize their recordings and see their frequencies. (Example below is of a Northern Red Cardinal).
           </p>
           <img src="./static/images/spectrogram.png"
                alt="Spectrogram example"
@@ -332,19 +332,27 @@
 
       <!-- Matting. -->
       <div class="column">
-        <h2 class="title is-3">Matting</h2>
+        <h2 class="title is-3">Audio Recording</h2>
         <div class="columns is-centered">
           <div class="column content">
             <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
+              Through the localization function you are also able to hear the recordings and save
+              them locally to be analyzed later.(Example below is of a Northern Red Cardinal).
             </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
+      
+            <!-- Audio player -->
+            <audio controls style="width:100%;">
+              <source src="./static/audio/recording.mp3" type="audio/mpeg">
+              <source src="./static/audio/recording.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
 
+      
+            <!-- Optional direct download link -->
+            <!-- <p style="margin-top:0.5rem;">
+              <a href="./static/audio/recording.mp3" download>Download the recording (MP3)</a>
+            </p> -->
+          </div>
         </div>
       </div>
     </div>
