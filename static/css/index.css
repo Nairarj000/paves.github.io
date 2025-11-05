@@ -180,20 +180,48 @@ body {
 @media (max-width: 768px){
   .bird-banner{ height: 90px; }
 }
-/* Results list: prevent clipping on wide screens */
-.results-list {
-  list-style: disc outside;
-  padding-left: 1.5rem;   /* provide space for the bullet */
+/* --- Fix for clipped content in Results section --- */
+.columns.is-centered {
   margin-left: 0;
-}
-.results-list li {
-  text-indent: 0;         /* cancel any negative indents */
-  margin: .35rem 0;
-  overflow: visible;      /* don't clip the first character */
+  margin-right: 0;
 }
 
-/* If the list sits inside a .content block or column with overflow hidden, undo it */
-.content, .column {
+.column.is-full-width {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  overflow: visible; /* don't clip child content */
+}
+
+/* Fix justification problems and clipping for content blocks */
+.content.has-text-justified {
+  text-align: justify;
   overflow: visible;
+}
+
+.content.has-text-justified h2,
+.content.has-text-justified p,
+.content.has-text-justified pre,
+.content.has-text-justified ul {
+  margin-left: 0;
+  padding-left: 0;
+  text-align: left; /* don't justify headers or data blocks */
+}
+
+/* Ensure <pre> blocks don't push offscreen */
+.content pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-left: 0;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  overflow-x: auto;
+}
+
+/* Bulleted lists */
+ul.results-list {
+  list-style-position: inside;
+  padding-left: 1rem;
+  margin: 0.5rem 0 1rem 0;
 }
 
