@@ -180,3 +180,20 @@ body {
 @media (max-width: 768px){
   .bird-banner{ height: 90px; }
 }
+/* Results list: prevent clipping on wide screens */
+.results-list {
+  list-style: disc outside;
+  padding-left: 1.5rem;   /* provide space for the bullet */
+  margin-left: 0;
+}
+.results-list li {
+  text-indent: 0;         /* cancel any negative indents */
+  margin: .35rem 0;
+  overflow: visible;      /* don't clip the first character */
+}
+
+/* If the list sits inside a .content block or column with overflow hidden, undo it */
+.content, .column {
+  overflow: visible;
+}
+
