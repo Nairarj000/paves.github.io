@@ -361,18 +361,21 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
+        <h2 class="title is-3">Methodology</h2>
 
         <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
+        <h3 class="title is-4">Localization</h3>
         <div class="content has-text-justified">
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            PAVES determines the direction of incoming bird sounds using a Time Difference of Arrival (TDOA)–based localization approach.
+            Multiple microphones are arranged in an array configuration, and when a bird call reaches the device, each microphone detects the sound at slightly different times.
+            By computing these time delays between the signals, the system derives the angle of incidence of the sound wave relative to the array.
+
+            Using four synchronized microphone boards and applying far-field assumptions (where sound waves are treated as planar), PAVES calculates the intersection of the directional vectors from each array to estimate the precise location of the sound source.
+            This enables accurate, real-time localization of birds without requiring large or complex hardware setups.
           </p>
         </div>
-        <div class="columns is-vcentered interpolation-panel">
+        <!-- <div class="columns is-vcentered interpolation-panel">
           <div class="column is-3 has-text-centered">
             <img src="./static/images/interpolate_start.jpg"
                  class="interpolation-image"
@@ -393,19 +396,23 @@
                  alt="Interpolation end reference image."/>
             <p class="is-bold">End Frame</p>
           </div>
-        </div>
+        </div> -->
         <br/>
         <!--/ Interpolating. -->
 
         <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
+        <h3 class="title is-4">BirdNET</h3>
         <div class="content has-text-justified">
           <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
+            To identify bird species from recorded audio, PAVES integrates BirdNET, a deep neural network developed by the Cornell Lab of Ornithology and Chemnitz University of Technology.
+            BirdNET is trained on hundreds of thousands of bird vocalizations, enabling it to recognize more than 6,000 species worldwide.
+
+            When a recording is captured by PAVES, the system extracts its spectrogram—a visual representation of frequency over time—and passes it to BirdNET’s neural model.
+            The model analyzes acoustic patterns and outputs the most probable bird species along with a confidence score.
+            This allows PAVES to automatically tag and classify recordings, providing users with accurate and data-driven bird identifications in real time.
           </p>
         </div>
-        <div class="content has-text-centered">
+        <!-- <div class="content has-text-centered">
           <video id="replay-video"
                  controls
                  muted
@@ -415,7 +422,7 @@
             <source src="./static/videos/replay.mp4"
                     type="video/mp4">
           </video>
-        </div>
+        </div> -->
         <!--/ Re-rendering. -->
 
       </div>
@@ -426,13 +433,36 @@
     <!-- Concurrent Work. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
+        <h2 class="title is-3">Results</h2>
 
         <div class="content has-text-justified">
           <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
+            Each detection made by PAVES produces a detailed data record describing the identified bird and its acoustic signature.
+            For every event, the system logs:
+
+            - Timestamp of detection
+
+            - Identified species (from BirdNET classification)
+
+            - X and Y coordinates of the estimated bird position (in meters)
+
+            - Angle of incidence calculated from one microphone array
+
+            - Model confidence score from BirdNET
+
+            - Dominant frequency bands present in the call
+
+            - Acoustic classification band used for analysis
+
+            - Local likelihood, indicating whether the species is commonly found in the region
+
+            The example shown below illustrates a detection of a Great-tailed Grackle approximately 1.5 meters (5 ft) from the device at an angle of 90°, demonstrating accurate localization and confident identification even at close range.
+
+            2025-08-08 21:20:06 | Great-tailed Grackle | Quiscalus mexicanus | [-0.015118896969441398, 0.9998857029453054] | 90.86628199198702° | confidence=1.00 | dominant_freq=43.1 Hz | band_used=1-1000 Hz | Likely here: Yes
+            2025-08-08 21:20:12 | Great-tailed Grackle | Quiscalus mexicanus | [-0.021082049551407692, 0.9997773183150845] | 91.20800247746757° | confidence=0.97 | dominant_freq=43.1 Hz | band_used=1-1000 Hz | Likely here: Yes
           </p>
-          <p>
+          
+          <!-- <p>
             <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
           </p>
           <p>
@@ -444,7 +474,7 @@
           </p>
           <p>
             There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
+          </p> -->
         </div>
       </div>
     </div>
@@ -454,7 +484,7 @@
 </section>
 
 
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{park2021nerfies,
@@ -497,7 +527,7 @@
       </div>
     </div>
   </div>
-</footer>
+</footer> -->
 
 </body>
 </html>
