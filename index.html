@@ -437,30 +437,31 @@
 
         <div class="content has-text-justified">
           <p>
-            Each detection made by PAVES produces a detailed data record describing the identified bird and its acoustic signature.
+            Each detection made by <i>PAVES</i> produces a detailed data record describing the identified bird and its acoustic signature.
             For every event, the system logs:
-
-            - Timestamp of detection
-
-            - Identified species (from BirdNET classification)
-
-            - X and Y coordinates of the estimated bird position (in meters)
-
-            - Angle of incidence calculated from one microphone array
-
-            - Model confidence score from BirdNET
-
-            - Dominant frequency bands present in the call
-
-            - Acoustic classification band used for analysis
-
-            - Local likelihood, indicating whether the species is commonly found in the region
-
-            The example shown below illustrates a detection of a Great-tailed Grackle approximately 1.5 meters (5 ft) from the device at an angle of 90°, demonstrating accurate localization and confident identification even at close range.
-
-            2025-08-08 21:20:06 | Great-tailed Grackle | Quiscalus mexicanus | [-0.015118896969441398, 0.9998857029453054] | 90.86628199198702° | confidence=1.00 | dominant_freq=43.1 Hz | band_used=1-1000 Hz | Likely here: Yes
-            2025-08-08 21:20:12 | Great-tailed Grackle | Quiscalus mexicanus | [-0.021082049551407692, 0.9997773183150845] | 91.20800247746757° | confidence=0.97 | dominant_freq=43.1 Hz | band_used=1-1000 Hz | Likely here: Yes
           </p>
+          
+          <ul>
+            <li><strong>Timestamp</strong> of detection</li>
+            <li><strong>Identified species</strong> (from BirdNET classification)</li>
+            <li><strong>X and Y coordinates</strong> of the estimated bird position (in meters)</li>
+            <li><strong>Angle of incidence</strong> calculated from one microphone array</li>
+            <li><strong>Model confidence score</strong> from BirdNET</li>
+            <li><strong>Dominant frequency bands</strong> present in the call</li>
+            <li><strong>Acoustic classification band</strong> used for analysis</li>
+            <li><strong>Local likelihood</strong>, indicating whether the species is commonly found in the region</li>
+          </ul>
+          
+          <p>
+            The example shown below illustrates a detection of a <i>Great-tailed Grackle</i> approximately 1.5 meters (5 ft)
+            from the device at an angle of 90°, demonstrating accurate localization and confident identification even at close range.
+          </p>
+          
+          <pre style="background-color:#f5f5f5; padding:1rem; border-radius:8px; overflow-x:auto;">
+          2025-08-08 21:20:06 | Great-tailed Grackle | Quiscalus mexicanus | [-0.015118896969441398, 0.9998857029453054] | 90.87° | confidence=1.00 | dominant_freq=43.1 Hz | band_used=1-1000 Hz | Likely here: Yes
+          2025-08-08 21:20:12 | Great-tailed Grackle | Quiscalus mexicanus | [-0.021082049551407692, 0.9997773183150845] | 91.21° | confidence=0.97 | dominant_freq=43.1 Hz | band_used=1-1000 Hz | Likely here: Yes
+          </pre>
+
           
           <!-- <p>
             <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
